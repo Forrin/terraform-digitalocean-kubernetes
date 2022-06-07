@@ -3,7 +3,8 @@ resource "digitalocean_kubernetes_cluster" "this" {
   region  = var.region
   version = var.cluster_version
 
-  auto_upgrade = var.auto_upgrade
+  auto_upgrade  = var.auto_upgrade
+  surge_upgrade = var.surge_upgrade
 
   node_pool {
     name       = var.default_node_pool.name

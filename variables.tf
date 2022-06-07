@@ -23,7 +23,7 @@ variable "auto_upgrade" {
 variable "surge_upgrade" {
   type        = bool
   description = "Enable surge upgrade during maintenance window."
-  default     = false
+  default     = true
 }
 
 variable "default_node_pool" {
