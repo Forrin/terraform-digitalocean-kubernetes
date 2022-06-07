@@ -1,6 +1,6 @@
 # Digitalocean Terraform Kubernetes Module
 
-This module deploys a Kubernetes cluster in Digital Ocean.
+This module deploys a Kubernetes cluster on the Digital Ocean Cloud.
 
 # Usage
 
