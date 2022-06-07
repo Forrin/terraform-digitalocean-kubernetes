@@ -6,8 +6,8 @@ resource "digitalocean_kubernetes_cluster" "this" {
   auto_upgrade = var.auto_upgrade
 
   node_pool {
-    name = var.default_node_pool.name
-    size = var.default_node_pool.size
+    name       = var.default_node_pool.name
+    size       = var.default_node_pool.size
     node_count = var.default_node_pool.node_count
   }
 }
