@@ -90,6 +90,6 @@ variable "maintenance_policy" {
   description = "Define the window updates are to be applied when auto upgrade is set to true."
   default = {
     day        = "any"
-    start_time = null
+    start_time = "5:00"
   }
 }
