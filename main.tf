@@ -18,9 +18,12 @@ resource "digitalocean_kubernetes_cluster" "this" {
     labels     = var.default_node_pool.labels
   }
 
-  maintenance_policy {
-    day        = var.maintenance_policy.day
-    start_time = var.maintenance_policy.start_time
+  dynamic "maintenance_policy" {
+    for_each = var.auto_upgrade ? [1] : []
+    content {
+      day        = var.maintenance_policy.day
+      start_time = var.maintenance_policy.start_time
+    }
   }
 
   tags = var.tags
