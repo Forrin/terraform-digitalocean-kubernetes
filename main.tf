@@ -37,9 +37,9 @@ resource "digitalocean_kubernetes_node_pool" "this" {
   name       = each.value.name
   size       = each.value.size
   node_count = each.value.node_count
-  auto_scale = var.default_node_pool.auto_scale
-  min_nodes  = var.default_node_pool.min_nodes
-  max_nodes  = var.default_node_pool.max_nodes
-  tags       = var.default_node_pool.tags
-  labels     = var.default_node_pool.labels
+  auto_scale = each.value.auto_scale
+  min_nodes  = each.value.min_nodes
+  max_nodes  = each.value.max_nodes
+  tags       = each.value.tags
+  labels     = each.value.labels
 }
