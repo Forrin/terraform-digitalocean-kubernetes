@@ -78,6 +78,7 @@ variable "node_pools" {
 variable "tags" {
   type = list(string)
   description = "List of tags to apply to the cluster."
+  default = [ ]
 }
 
 variable "maintenance_policy" {
