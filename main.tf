@@ -5,7 +5,7 @@ resource "digitalocean_kubernetes_cluster" "this" {
 
   auto_upgrade  = var.auto_upgrade
   surge_upgrade = var.surge_upgrade
-  ha = var.ha
+  ha            = var.ha
 
   node_pool {
     name       = var.default_node_pool.name
@@ -14,7 +14,7 @@ resource "digitalocean_kubernetes_cluster" "this" {
   }
 
   maintenance_policy {
-    day = var.maintenance_policy.day
+    day        = var.maintenance_policy.day
     start_time = var.maintenance_policy.start_time
   }
 
