@@ -11,6 +11,11 @@ resource "digitalocean_kubernetes_cluster" "this" {
     name       = var.default_node_pool.name
     size       = var.default_node_pool.size
     node_count = var.default_node_pool.node_count
+    auto_scale = var.default_node_pool.auto_scale
+    min_nodes  = var.default_node_pool.min_nodes
+    max_nodes  = var.default_node_pool.max_nodes
+    tags       = var.default_node_pool.tags
+    labels     = var.default_node_pool.labels
   }
 
   maintenance_policy {
@@ -29,4 +34,9 @@ resource "digitalocean_kubernetes_node_pool" "this" {
   name       = each.value.name
   size       = each.value.size
   node_count = each.value.node_count
+  auto_scale = var.default_node_pool.auto_scale
+  min_nodes  = var.default_node_pool.min_nodes
+  max_nodes  = var.default_node_pool.max_nodes
+  tags       = var.default_node_pool.tags
+  labels     = var.default_node_pool.labels
 }
