@@ -5,6 +5,7 @@ resource "digitalocean_kubernetes_cluster" "this" {
 
   auto_upgrade  = var.auto_upgrade
   surge_upgrade = var.surge_upgrade
+  ha = var.ha
 
   node_pool {
     name       = var.default_node_pool.name
