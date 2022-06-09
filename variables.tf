@@ -34,48 +34,42 @@ variable "ha" {
 
 variable "default_node_pool" {
   type = object({
-
+    name       = string
+    size       = string
+    node_count = number
+    auto_scale = bool
+    min_nodes  = number
+    max_nodes  = number
+    tags       = list(string)
+    labels     = map(string)
   })
-  # type = object({
-  #   name       = string
-  #   size       = string
-  #   node_count = number
-  #   auto_scale = bool
-  #   min_nodes  = number
-  #   max_nodes  = number
-  #   tags       = list(string)
-  #   labels     = map(string)
-  # })
 
   description = "Cluster default node pool."
-  # default = {
-  #   auto_scale = true
-  #   labels     = {}
-  #   max_nodes  = 2
-  #   min_nodes  = 1
-  #   name       = "default-node-pool"
-  #   node_count = null
-  #   size       = "s-1vcpu-2gb"
-  #   tags       = []
-  # }
+  default = {
+    auto_scale = true
+    labels     = {}
+    max_nodes  = 2
+    min_nodes  = 1
+    name       = "default-node-pool"
+    node_count = null
+    size       = "s-1vcpu-2gb"
+    tags       = []
+  }
 }
 
 variable "node_pools" {
-  type = object({
-    
-  })
-  # type = map(
-  #   object({
-  #     name       = string
-  #     size       = string
-  #     node_count = number
-  #     auto_scale = bool
-  #     min_nodes  = number
-  #     max_nodes  = number
-  #     tags       = list(string)
-  #     labels     = map(string)
-  #   })
-  # )
+  type = map(
+    object({
+      name       = string
+      size       = string
+      node_count = number
+      auto_scale = bool
+      min_nodes  = number
+      max_nodes  = number
+      tags       = list(string)
+      labels     = map(string)
+    })
+  )
 
   description = "Cluster additional node pools."
   default     = {}
