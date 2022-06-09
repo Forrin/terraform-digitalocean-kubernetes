@@ -27,9 +27,9 @@ variable "surge_upgrade" {
 }
 
 variable "ha" {
-  type = bool
+  type        = bool
   description = "Enable high availability control plane."
-  default = true
+  default     = true
 }
 
 variable "default_node_pool" {
@@ -38,22 +38,22 @@ variable "default_node_pool" {
     size       = string
     node_count = number
     auto_scale = bool
-    min_nodes = number
-    max_nodes = number
-    tags = list(string)
-    labels = map(string)
+    min_nodes  = number
+    max_nodes  = number
+    tags       = list(string)
+    labels     = map(string)
   })
 
   description = "Cluster default node pool."
   default = {
     auto_scale = true
-    labels = { }
-    max_nodes = 2
-    min_nodes = 1
-    name = "default-node-pool"
-    node_count = 1
-    size = "s-1vcpu-2gb"
-    tags = [ ]
+    labels     = {}
+    max_nodes  = 2
+    min_nodes  = 1
+    name       = "default-node-pool"
+    node_count = null
+    size       = "s-1vcpu-2gb"
+    tags       = []
   }
 }
 
@@ -64,10 +64,10 @@ variable "node_pools" {
       size       = string
       node_count = number
       auto_scale = bool
-      min_nodes = number
-      max_nodes = number
-      tags = list(string)
-      labels = map(string)
+      min_nodes  = number
+      max_nodes  = number
+      tags       = list(string)
+      labels     = map(string)
     })
   )
 
@@ -76,20 +76,20 @@ variable "node_pools" {
 }
 
 variable "tags" {
-  type = list(string)
+  type        = list(string)
   description = "List of tags to apply to the cluster."
-  default = [ ]
+  default     = []
 }
 
 variable "maintenance_policy" {
   type = object({
-    day = string
+    day        = string
     start_time = string
   })
 
   description = "Define the window updates are to be applied when auto upgrade is set to true."
   default = {
-    day = "any"
+    day        = "any"
     start_time = "24:00"
   }
 }
