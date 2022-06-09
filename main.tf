@@ -12,6 +12,13 @@ resource "digitalocean_kubernetes_cluster" "this" {
     size       = var.default_node_pool.size
     node_count = var.default_node_pool.node_count
   }
+
+  maintenance_policy {
+    day = var.maintenance_policy.day
+    start_time = var.maintenance_policy.start_time
+  }
+
+  tags = var.tags
 }
 
 resource "digitalocean_kubernetes_node_pool" "this" {

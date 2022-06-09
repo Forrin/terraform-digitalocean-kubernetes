@@ -76,3 +76,21 @@ variable "node_pools" {
   description = "Cluster additional node pools."
   default     = {}
 }
+
+variable "tags" {
+  type = list(string)
+  description = "List of tags to apply to the cluster."
+}
+
+variable "maintenance_policy" {
+  type = object({
+    day = string
+    start_time = string
+  })
+
+  description = "Define the window updates are to be applied when auto upgrade is set to true."
+  default = {
+    day = "any"
+    start_time = "24:00"
+  }
+}
